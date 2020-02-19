@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Album index{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Album index</h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Nom</th>
+                {# <th>Pochette</th> #}
+                <th>Artiste</th>
+                <th>Sorti</th>
+                <th>Genre</th>
+                {# <th>Presentation</th> #}
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for album in albums %}
+            <tr>
+                {# <td>{{ album.id }}</td> #}
+                <td>{{ album.nom }}</td>
+                {# <td>{{ album.pochette }}</td> #}
+                <td>{{ album.artiste }}</td>
+                <td>{{ album.sorti ? album.sorti|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ album.category.title }} </td>
+                {# <td>{{ album.presentation }}</td> #}
+                <td>
+                    <a href="{{ path('album_show', {'id': album.id}) }}">show</a>
+                    <a href="{{ path('album_edit', {'id': album.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('album_new') }}">Create new</a>
+
+    {% for message in app.flashes('success')%}
+    <div class="container">
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    </div>
+    {% endfor %}
+
+    {% for message in app.flashes('danger')%}
+        <div class="container">
+            <div class="alert alert-danger">
+                {{ message }}
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

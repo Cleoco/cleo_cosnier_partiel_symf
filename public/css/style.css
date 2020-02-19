@@ -1,0 +1,83 @@
+h1{
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-align: center;
+    margin: 50px 0;
+    color: #343a40;
+}
+
+.album_card img{
+    width: 100%;
+}
+
+.btn_action{
+    margin : 30px 0;
+}
+
+h2{
+    font-size: 24px;
+    color:rgb(148, 148, 148);
+    margin-bottom: 25px;
+}
+
+span{
+    font-weight: bold;
+}
+
+.album_pochette img {
+width: 100%;
+}
+
+p{
+    line-height: 25px;
+}
+
+.navbar .navbar-brand{
+    color:white;
+    font-weight: bold;
+    letter-spacing: 5px;
+    font-size: 30px;
+    padding-right: 35px;
+}
+.navbar a{
+    color: white;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: white;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: rgb(0, 110, 255);  
+}
+.dropdown-menu a{
+    color:black
+}
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+    color: rgb(0, 110, 255);  
+}
+
+.album_img{
+    height: 300px;
+    overflow: hidden;
+}
+
+.bandeau_ajout{
+    width: 100%;
+    height:150px;
+    background:#343a40
+}
+
+.bandeau_ajout .btn{
+    height: 38px;
+}
+.bandeau_ajout h2{
+    margin: 0;
+    padding-right: 20px;
+    color: white;
+    letter-spacing: 3px;
+}
+.filet{
+    width: 75px;
+    height: 13px;
+    background-color:rgb(0, 110, 255); 
+    margin: 30px auto 70px;
+}

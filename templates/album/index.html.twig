@@ -4,46 +4,43 @@
 
 {% block body %}
 <div class="container">
-    <h1>Album index</h1>
+    <h1>ALBUMS DISPONIBLES</h1>
+    <div class="filet"></div>
 
 
-    <table class="table">
-        <thead>
-            <tr>
-                {# <th>Id</th> #}
-                <th>Nom</th>
-                {# <th>Pochette</th> #}
-                <th>Artiste</th>
-                <th>Sorti</th>
-                <th>Genre</th>
-                {# <th>Presentation</th> #}
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for album in albums %}
-            <tr>
-                {# <td>{{ album.id }}</td> #}
-                <td>{{ album.nom }}</td>
-                {# <td>{{ album.pochette }}</td> #}
-                <td>{{ album.artiste }}</td>
-                <td>{{ album.sorti ? album.sorti|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ album.category.title }} </td>
-                {# <td>{{ album.presentation }}</td> #}
-                <td>
-                    <a href="{{ path('album_show', {'id': album.id}) }}">show</a>
-                    <a href="{{ path('album_edit', {'id': album.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('album_new') }}">Create new</a>
+    <div class="album_allcards d-flex ">
+        <div class="row">
+            <tbody>
+            {% for album in albums %}
+                <div class="album_card col-4">
+                
+                        {# <td>{{ album.id }}</td> #}
+                        <h2>{{ album.nom }}</h2>
+                        <div class="album_img">
+                            <img src="{{ album.pochette }}" alt="" srcset="">
+                        </div>
+                        {# <td>{{ album.pochette }}</td> #}
+                        <p class="mt-4 mb-0"><span>Artiste : </span>{{ album.artiste }}</p>
+                        <p class="mb-0"><span>Sortie : </span>{{ album.sorti ? album.sorti|date('d/m/Y') : '' }}</p>
+                        <p class="mb-0"><span>Genre : </span>{{ album.category.title }}</p>
+                        
+                        {# <td>{{ album.presentation }}</td> #}
+                        <div class="btn_action">
+                            <a class=" btn btn-primary"href="{{ path('album_show', {'id': album.id}) }}">Voir</a>
+                            <a class=" btn btn-success"href="{{ path('album_edit', {'id': album.id}) }}">Modifier</a>
+                        </div>
+                        
+                        
+                    
+                </div>
+            {% else %}
+                <tr>
+                    <td colspan="8">aucun album enregistré</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            </div>
+        </div>
 
     {% for message in app.flashes('success')%}
     <div class="container">
@@ -60,6 +57,11 @@
         </div>
     </div>
     {% endfor %}
-
 </div>
+<div class="bandeau_ajout d-flex justify-content-center align-items-center">
+    <h2>Vous souhaitez ajouter un album à la bibliothèque ?</h2>
+    <a class=" btn btn-primary ml-3" href="{{ path('album_new') }}">Ajouter un album</a>
+</div>
+
+
 {% endblock %}

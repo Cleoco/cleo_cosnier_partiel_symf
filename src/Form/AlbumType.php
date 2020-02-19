@@ -40,6 +40,7 @@ class AlbumType extends AbstractType
             ])
             ->add('sorti', DateType::class, [
                 'years' => range(1920,2020),
+                'label' => 'Date de sortie',
                 'required'=> true,
                 'format' => 'dd MM yyyy',
             ])

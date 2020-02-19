@@ -4,10 +4,13 @@
 
 {% block body %}
 <div class="container">
-    <h1>Create new Album</h1>
+    <h1>Ajouter un nouvel album</h1>
+    <div class="filet"></div>
+        <div class="btn_action">
+            <a class=" btn btn-primary"href="{{ path('album_index') }}">Retourner aux albums</a>
+        </div>
 
     {{ include('album/_form.html.twig') }}
 
-    <a href="{{ path('album_index') }}">back to list</a>
 </div>
 {% endblock %}

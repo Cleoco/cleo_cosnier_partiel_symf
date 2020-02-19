@@ -1,5 +1,5 @@
-<form method="post" action="{{ path('album_delete', {'id': album.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+<form method="post" action="{{ path('album_delete', {'id': album.id}) }}" onsubmit="return confirm('Êtes-vous sur de vouloir supprimer cet album ?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ album.id) }}">
-    <button class=" btn btn-danger mt-2">Supprimer</button>
+    <button class=" btn btn-danger mt-2 mb-5">Supprimer</button>
 </form>

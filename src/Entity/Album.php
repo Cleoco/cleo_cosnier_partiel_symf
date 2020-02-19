@@ -46,6 +46,10 @@ class Album
 
     /**
      * @ORM\Column(type="text")
+     *  @Assert\Length(
+     *      min = 100,
+     *      minMessage = "Votre description doit contenir au minimum {{ limit }} caractères",
+     * )
      */
     private $presentation;
 
